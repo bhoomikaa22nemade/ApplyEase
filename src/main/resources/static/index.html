@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ApplyEase | Job Application Automation</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+   <!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+<a href="/index.html" class="logo">
+
+    <div class="logo-icon">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        <span class="logo-badge">
+            <i class="fa-solid fa-bolt"></i>
+        </span>
+
+    </div>
+
+    <h2>ApplyEase</h2>
+
+</a>
+
+
+    <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/#features">Pipeline</a></li>
+        <li><a href="/register.html">Register</a></li>
+        <li><a href="/#login">Log in</a></li>
+    </ul>
+
+</nav>
+
+<div class="page-wrap">
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <span class="tag"><i class="fa-solid fa-code-branch"></i> applyease --init</span>
+
+            <h1>
+                Apply smarter.
+                <br>
+                Get hired faster.
+            </h1>
+
+            <p>
+                ApplyEase runs your job search like a build pipeline. Upload
+                a resume once, point it at TechFetch, and let the automation
+                queue, run, and report every application back to you.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="/#login" class="primary-btn">Get started</a>
+                <a href="/#features" class="secondary-btn">See the pipeline</a>
+            </div>
+
+            <div class="hero-typing">
+
+    <span id="typingText"></span>
+
+</div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <div class="journey-panel">
+
+                <div class="journey-illustration">
+                    <svg viewBox="0 0 220 172" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <ellipse cx="110" cy="160" rx="86" ry="8" fill="var(--border)" opacity="0.55"/>
+
+                        <rect x="86" y="48" width="68" height="76" rx="18" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+
+                        <rect x="54" y="132" width="6" height="26" rx="2" fill="var(--border)"/>
+                        <rect x="160" y="132" width="6" height="26" rx="2" fill="var(--border)"/>
+                        <rect x="40" y="124" width="140" height="9" rx="4" fill="var(--border)"/>
+
+                        <path d="M84 120 C84 88 93 65 110 65 C127 65 136 88 136 120 Z" fill="var(--accent-dim)"/>
+                        <circle cx="110" cy="49" r="16" fill="var(--accent)"/>
+
+                        <rect x="70" y="78" width="80" height="48" rx="5" fill="#ffffff" stroke="var(--border)" stroke-width="2"/>
+                        <rect x="78" y="86" width="64" height="9" rx="3" fill="var(--surface-2)"/>
+                        <rect x="78" y="100" width="46" height="5" rx="2" fill="var(--border)"/>
+                        <rect x="78" y="109" width="34" height="5" rx="2" fill="var(--border)"/>
+                        <rect x="78" y="118" width="54" height="5" rx="2" fill="var(--accent)"/>
+
+                        <circle cx="142" cy="86" r="10" fill="#2CC26B"/>
+                        <path d="M137 86.5 L140.5 90 L147 82.5" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+                        <rect x="62" y="128" width="96" height="8" rx="3" fill="var(--surface-2)" stroke="var(--border)"/>
+                    </svg>
+                </div>
+
+                <div class="journey-steps">
+
+                    <div class="j-step">
+                        <span class="j-dot d1"><i class="fa-solid fa-paper-plane"></i></span>
+                        <span class="j-label">Applying</span>
+                    </div>
+
+                    <div class="j-line l1"></div>
+
+                    <div class="j-step">
+                        <span class="j-dot d2"><i class="fa-solid fa-circle-check"></i></span>
+                        <span class="j-label">Applied</span>
+                    </div>
+
+                    <div class="j-line l2"></div>
+
+                    <div class="j-step">
+                        <span class="j-dot d3"><i class="fa-solid fa-calendar-check"></i></span>
+                        <span class="j-label">Interview</span>
+                    </div>
+
+                    <div class="j-line l3"></div>
+
+                    <div class="j-step j-hired">
+                        <span class="j-dot d4">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span class="confetti"><i></i><i></i><i></i><i></i><i></i></span>
+                        </span>
+                        <span class="j-label">Hired</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats-bar">
+
+        <div class="stat-block">
+            <h3>18,400+</h3>
+            <p>applications automated</p>
+        </div>
+
+        <div class="stat-block">
+            <h3>6.2 hrs</h3>
+            <p>average time saved weekly</p>
+        </div>
+
+        <div class="stat-block">
+            <h3>94%</h3>
+            <p>submissions error-free</p>
+        </div>
+
+        <div class="stat-block">
+            <h3>3 min</h3>
+            <p>to launch your first run</p>
+        </div>
+
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+
+<section class="features" id="features">
+
+    <span class="section-eyebrow">
+
+        ApplyEase Workflow
+
+    </span>
+
+    <h2>
+
+        From Registration to Successful Job Applications
+
+    </h2>
+
+    <div class="pipeline">
+
+        <div class="pipeline-track"></div>
+
+        <div class="stage">
+
+            <div class="stage-marker">01</div>
+
+            <i class="fa-solid fa-user-plus"></i>
+
+            <h3>
+
+                Register & Login
+
+            </h3>
+
+            <p>
+
+                Create your ApplyEase account and securely log in to access your personalized dashboard, resume management, and job application features.
+
+            </p>
+
+        </div>
+
+        <div class="stage">
+
+            <div class="stage-marker">02</div>
+
+            <i class="fa-solid fa-file-arrow-up"></i>
+
+            <h3>
+
+                Upload & Analyze Resume
+
+            </h3>
+
+            <p>
+
+                Upload your resume and instantly receive an ATS compatibility score along with strengths, weaknesses, and suggestions to improve your chances.
+
+            </p>
+
+        </div>
+
+        <div class="stage">
+
+            <div class="stage-marker">03</div>
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <h3>
+
+                Search Matching Jobs
+
+            </h3>
+
+            <p>
+
+                Search jobs based on your selected role and location. Browse detailed job listings including company, salary, required skills, experience, and descriptions.
+
+            </p>
+
+        </div>
+
+        <div class="stage">
+
+            <div class="stage-marker">04</div>
+
+            <i class="fa-solid fa-robot"></i>
+
+            <h3>
+
+                Automate & Track
+
+            </h3>
+
+            <p>
+
+                Select jobs, run the automation process, track your applications in My Applications, and download a detailed application report.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- ================= LOGIN ================= -->
+
+    <section class="login-section" id="login">
+
+        <div class="login-card">
+
+            <span class="login-badge"><i class="fa-solid fa-lock"></i> auth required</span>
+
+            <h2>Log in to continue</h2>
+            <p>Access your ApplyEase dashboard.</p>
+
+            <form id="loginForm">
+
+    <div class="input-group">
+
+        <label>Email address</label>
+
+        <input
+            id="loginEmail"
+            type="email"
+            placeholder="you@example.com"
+            required>
+
+    </div>
+
+    <div class="input-group">
+
+        <label>Password</label>
+
+        <input
+            id="loginPassword"
+            type="password"
+            placeholder="Enter password"
+            required>
+
+    </div>
+
+    <button
+        type="submit"
+        id="loginBtn">
+
+        Log in
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </button>
+
+</form>
+
+        </div>
+
+    </section>
+
+   <!-- ================= FAQ ================= -->
+
+<section class="faq">
+
+    <span class="section-eyebrow">
+
+        Frequently Asked Questions
+
+    </span>
+
+    <h2>
+
+        Everything you need to know
+
+    </h2>
+
+    <div class="faq-list">
+
+        <details class="faq-item" open>
+
+            <summary>
+
+                How do I get started with ApplyEase?
+
+            </summary>
+
+            <p>
+
+                Simply register for an account, log in, upload your resume, and you're ready to analyze your resume, search jobs, and manage your applications.
+
+            </p>
+
+        </details>
+
+        <details class="faq-item">
+
+            <summary>
+
+                What is the ATS Resume Checker?
+
+            </summary>
+
+            <p>
+
+                The ATS Resume Checker evaluates your resume and provides an ATS score, identifies strengths and weaknesses, and suggests improvements to help increase your chances of getting shortlisted.
+
+            </p>
+
+        </details>
+
+        <details class="faq-item">
+
+            <summary>
+
+                Can I search jobs based on my skills?
+
+            </summary>
+
+            <p>
+
+                Yes. You can search jobs using your preferred role and location, then explore details like company, salary, required skills, experience, and job description.
+
+            </p>
+
+        </details>
+
+        <details class="faq-item">
+
+            <summary>
+
+                How does the automation feature work?
+
+            </summary>
+
+            <p>
+
+                Select the jobs you are interested in and start automation. ApplyEase tracks the selected jobs and keeps your application history organized for easy monitoring.
+
+            </p>
+
+        </details>
+
+        <details class="faq-item">
+
+            <summary>
+
+                Can I track my applications?
+
+            </summary>
+
+            <p>
+
+                Yes. The My Applications section helps you keep track of all selected jobs along with their application status and report.
+
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+<!-- ================= CTA ================= -->
+
+<section class="cta-band">
+
+    <h2>
+
+        Start your career journey with confidence.
+
+    </h2>
+
+    <p>
+
+        Register today, improve your resume, discover opportunities, and manage your job applications—all in one place.
+
+    </p>
+
+    <a href="/register.html" class="primary-btn">
+
+        Register Now
+
+    </a>
+
+</section>
+<footer>
+
+<div class="footer-inner">
+
+    <!-- Left -->
+
+    <div class="footer-left">
+
+        <div class="footer-brand">
+
+            <div class="logo-icon small">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+            </div>
+
+            <h3>ApplyEase</h3>
+
+        </div>
+
+        <p class="footer-desc">
+
+            Smart Resume Analysis & Job Application Automation.
+
+        </p>
+
+        <blockquote class="footer-quote">
+
+            "Every expert was once a beginner. Keep learning, keep applying, and your opportunity will come."
+
+        </blockquote>
+
+    </div>
+
+    <!-- Right -->
+
+    <div class="footer-right">
+
+        <div>
+
+            <h4>Quick Links</h4>
+
+            <a href="/">Home</a>
+
+            <a href="/#features">Workflow</a>
+
+            <a href="/#faq">FAQ</a>
+
+            <a href="/register.html">Register</a>
+
+        </div>
+
+        
+
+        <div>
+
+            <h4>Made For</h4>
+
+            <p>
+
+                Students<br>
+
+                Fresh Graduates<br>
+
+                Job Seekers
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+
+    ApplyEase • Designed to simplify the job application journey.
+
+</div>
+
+</footer>
+<script src="/script.js"></script>
+</body>
+</html>

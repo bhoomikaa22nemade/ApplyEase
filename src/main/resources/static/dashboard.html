@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>ApplyEase Dashboard</title>
+
+    <link rel="stylesheet"
+        href="/dashboard.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <a href="/index.html" class="logo">
+        <div class="logo-icon">
+            <i class="fa-solid fa-briefcase"></i>
+
+            <span class="logo-badge">
+                <i class="fa-solid fa-bolt"></i>
+            </span>
+        </div>
+
+        <h1>ApplyEase</h1>
+    </a>
+
+    <div class="nav-links">
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/application.html">My Applications</a>
+    </div>
+
+    <div class="nav-right">
+        <div class="user-profile">
+            <i class="fa-solid fa-user"></i>
+            <span id="loggedInUser">Welcome, Bhoomika</span>
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">
+            Logout
+        </button>
+    </div>
+
+</nav>
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<h1>
+
+Your Career Starts Here 🚀
+
+</h1>
+
+<p>
+
+Upload your resume, improve your ATS score, discover matching TechFetch jobs, and automate your applications—all from one dashboard.
+
+</p>
+
+</section>
+
+<!-- ================= STEP CARDS ================= -->
+
+<section class="steps" aria-label="Application progress">
+
+<div class="step-card" id="stepCard1" data-step="1">
+
+<i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i>
+
+<h3>
+
+Step 1
+
+</h3>
+
+<p>
+
+Upload Resume
+
+</p>
+
+<span id="resumeStatus" class="status-pill status-pending" role="status">
+
+Resume Not Uploaded
+
+</span>
+
+</div>
+
+<div class="step-card" id="stepCard2" data-step="2">
+
+<i class="fa-solid fa-file-circle-check" aria-hidden="true"></i>
+
+<h3>
+
+Step 2
+
+</h3>
+
+<p>
+
+ATS Resume Check
+
+</p>
+
+<span id="atsStatus" class="status-pill status-pending" role="status">
+
+Waiting
+
+</span>
+
+</div>
+
+<div class="step-card" id="stepCard3" data-step="3">
+
+<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+
+<h3>
+
+Step 3
+
+</h3>
+
+<p>
+
+Search TechFetch Jobs
+
+</p>
+
+<span id="jobStatus" class="status-pill status-pending" role="status">
+
+Waiting
+
+</span>
+
+</div>
+
+<div class="step-card" id="stepCard4" data-step="4">
+
+<i class="fa-solid fa-robot" aria-hidden="true"></i>
+
+<h3>
+
+Step 4
+
+</h3>
+
+<p>
+
+Automation
+
+</p>
+
+<span id="automationStatus" class="status-pill status-pending" role="status">
+
+Waiting
+
+</span>
+
+</div>
+
+</section>
+
+
+<!-- ================= UPLOAD RESUME ================= -->
+
+<section class="card">
+
+<h2>
+
+Upload Resume
+
+</h2>
+
+<p>
+
+Upload your latest resume before searching jobs.
+
+</p>
+
+<div class="upload-box">
+
+<i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
+
+<h3>
+
+Choose Resume
+
+</h3>
+
+<p>
+
+Supported Files: PDF, DOC, DOCX
+
+</p>
+
+<label for="resumeFile" class="visually-hidden">Choose a resume file to upload</label>
+
+<input
+type="file"
+id="resumeFile"
+name="resumeFile"
+accept=".pdf,.doc,.docx"
+aria-describedby="resumeFileHelp resumeUploadError">
+
+<span id="resumeFileHelp" class="file-name" aria-live="polite">No file selected</span>
+
+<button
+id="uploadBtn">
+
+Upload Resume
+
+</button>
+
+<div id="uploadSpinner" class="spinner" hidden aria-label="Uploading resume">
+
+<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
+
+</div>
+
+<p id="resumeUploadError" class="error-text" role="alert" hidden></p>
+
+</div>
+
+</section>
+
+<!-- ================= ATS CHECK ================= -->
+
+<section class="card">
+
+<h2>
+
+ATS Resume Checker
+
+</h2>
+
+<p>
+
+Analyze your resume before applying for jobs.
+
+</p>
+
+<div class="ats-box">
+
+<div>
+
+<h3>
+
+ATS Score
+
+</h3>
+
+<h1 id="atsScore">
+
+--
+
+</h1>
+
+</div>
+
+<div>
+
+<h3>
+
+Suggestions
+
+</h3>
+
+<ul id="atsSuggestions">
+
+<li>Add Java Skills</li>
+
+<li>Add Spring Boot Projects</li>
+
+<li>Improve Resume Keywords</li>
+
+</ul>
+
+</div>
+
+<button
+id="atsBtn"
+class="primary-btn">
+
+Check ATS Score
+
+</button>
+
+<div id="atsSpinner" class="spinner" hidden aria-label="Checking ATS score">
+
+<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
+
+</div>
+
+<p id="atsError" class="error-text" role="alert" hidden></p>
+
+</div>
+
+</section>
+
+<!-- ================= JOB SEARCH ================= -->
+
+<section class="card">
+
+    <h2>Search TechFetch Jobs</h2>
+
+    <p>
+
+        Search jobs matching your role and preferences.
+
+    </p>
+
+    <div class="job-search-box">
+
+        <select id="jobKeywords">
+
+            <option value="">Select Role</option>
+
+            <option value="Java Developer">Java Developer</option>
+
+            <option value="Java Full Stack Developer">Java Full Stack Developer</option>
+
+            <option value="Spring Boot Developer">Spring Boot Developer</option>
+
+            <option value="Backend Developer">Backend Developer</option>
+
+            <option value="Software Engineer">Software Engineer</option>
+
+            <option value="Java Software Engineer">Java Software Engineer</option>
+
+            <option value="J2EE Developer">J2EE Developer</option>
+
+            <option value="Microservices Developer">Microservices Developer</option>
+
+            <option value="REST API Developer">REST API Developer</option>
+
+            <option value="Web Developer">Web Developer</option>
+
+            <option value="React Developer">React Developer</option>
+
+            <option value="Frontend Developer">Frontend Developer</option>
+
+            <option value="Angular Developer">Angular Developer</option>
+
+            <option value="Node.js Developer">Node.js Developer</option>
+
+            <option value="Python Developer">Python Developer</option>
+
+            <option value="Django Developer">Django Developer</option>
+
+            <option value="Data Analyst">Data Analyst</option>
+
+            <option value="Data Engineer">Data Engineer</option>
+
+            <option value="Business Analyst">Business Analyst</option>
+
+            <option value="DevOps Engineer">DevOps Engineer</option>
+
+            <option value="Cloud Engineer">Cloud Engineer</option>
+
+            <option value="AWS Engineer">AWS Engineer</option>
+
+            <option value="QA Engineer">QA Engineer</option>
+
+            <option value="Automation Test Engineer">Automation Test Engineer</option>
+
+            <option value="Android Developer">Android Developer</option>
+
+            <option value="iOS Developer">iOS Developer</option>
+
+            <option value="UI UX Designer">UI UX Designer</option>
+
+        </select>
+
+        <input
+            type="text"
+            id="jobLocation"
+            placeholder="Location (e.g. Pune, Bangalore, Remote)">
+
+        <button
+            id="searchJobsBtn"
+            class="primary-btn">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            Search Jobs
+
+        </button>
+
+        <button
+            id="toggleFiltersBtn"
+            class="secondary-btn"
+            type="button">
+
+            <i class="fa-solid fa-sliders"></i>
+
+            Filters
+
+        </button>
+
+    </div>
+
+    <p
+        id="jobSearchError"
+        class="error-text"
+        hidden>
+
+    </p>
+
+    <!-- FILTERS -->
+
+    <div
+        id="jobFiltersPanel"
+        class="job-filters"
+        hidden>
+
+        <select id="filterExperience">
+
+            <option value="">Experience</option>
+
+            <option>Fresher</option>
+
+            <option>0-1 Years</option>
+
+            <option>1-3 Years</option>
+
+            <option>3-5 Years</option>
+
+            <option>5+ Years</option>
+
+        </select>
+
+        <select id="filterJobType">
+
+            <option value="">Job Type</option>
+
+            <option>Full Time</option>
+
+            <option>Internship</option>
+
+            <option>Contract</option>
+
+            <option>Part Time</option>
+
+        </select>
+
+        <select id="filterWorkMode">
+
+            <option value="">Work Mode</option>
+
+            <option>Remote</option>
+
+            <option>Hybrid</option>
+
+            <option>Onsite</option>
+
+        </select>
+
+        <select id="filterPostedDate">
+
+            <option value="">Posted</option>
+
+            <option value="1">Today</option>
+
+            <option value="3">Last 3 Days</option>
+
+            <option value="7">Last 7 Days</option>
+
+            <option value="30">Last 30 Days</option>
+
+        </select>
+
+        <input
+            type="number"
+            id="filterSalaryMin"
+            placeholder="Minimum Salary">
+
+        <input
+            type="number"
+            id="filterSalaryMax"
+            placeholder="Maximum Salary">
+
+        <div class="filter-buttons">
+
+            <button
+                id="applyFiltersBtn"
+                class="primary-btn">
+
+                Apply
+
+            </button>
+
+            <button
+                id="clearFiltersBtn"
+                class="secondary-btn">
+
+                Clear
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div
+        id="activeFilterChips"
+        class="active-filter-chips">
+
+    </div>
+
+    <p
+        id="jobResultsCount"
+        class="job-results-count"
+        hidden>
+
+    </p>
+
+    <ul
+        id="jobResultsList"
+        class="job-results-list">
+
+    </ul>
+
+    <p
+        id="jobResultsEmpty"
+        class="empty-state">
+
+        No jobs found. Search to view available jobs.
+
+    </p>
+
+</section>
+<!-- ================= AUTOMATION CONTROLS ================= -->
+
+<section class="card">
+
+    <h2>
+
+        Run Automation
+
+    </h2>
+
+    <p>
+
+        Automatically apply to the selected jobs using your saved resume and TechFetch connection.
+
+    </p>
+
+    <div class="automation-controls">
+
+        <button
+            id="startAutomationBtn"
+            class="primary-btn">
+
+            Start Automation
+
+        </button>
+
+        <button
+            id="stopAutomationBtn"
+            class="secondary-btn"
+            disabled>
+
+            Stop
+
+        </button>
+
+    </div>
+
+    <p
+        id="automationError"
+        class="error-text"
+        role="alert"
+        hidden>
+
+    </p>
+
+    <h3 class="automation-title">
+
+        Automation Log
+
+    </h3>
+
+    <ul
+        id="automationLog"
+        class="automation-log">
+
+        <!-- Automation logs will appear here -->
+
+    </ul>
+
+</section>
+
+<!-- ================= RESULTS ================= -->
+
+<section class="card">
+
+    <h2>
+
+        Automation Results
+
+    </h2>
+
+    <div class="results">
+
+        <div class="result-box">
+
+            <h3>
+
+                Portal
+
+            </h3>
+
+            <p id="resultPortal">
+
+                ApplyEase
+
+            </p>
+
+        </div>
+
+        <div class="result-box">
+
+            <h3>
+
+                Jobs Found
+
+            </h3>
+
+            <p id="jobsFound">
+
+                --
+
+            </p>
+
+        </div>
+
+        <div class="result-box">
+
+            <h3>
+
+                Applied
+
+            </h3>
+
+            <p id="jobsApplied">
+
+                --
+
+            </p>
+
+        </div>
+
+        <div class="result-box">
+
+            <h3>
+
+                Status
+
+            </h3>
+
+            <p id="finalStatus">
+
+                Waiting
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <button id="downloadReportBtn" class="secondary-btn">
+
+        Download Application Report
+
+    </button>
+
+</section>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="/dashboard.js"></script>
+
+</body>
+
+</html>

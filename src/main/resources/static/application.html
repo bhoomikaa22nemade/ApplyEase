@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ApplyEase | My Applications</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+
+    background:#f5f7fb;
+
+}
+
+header{
+
+    background:#1565C0;
+
+    color:#fff;
+
+    padding:20px 40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+header h1{
+
+    font-family:Georgia,serif;
+
+}
+
+.back-btn{
+
+    text-decoration:none;
+
+    color:#1565C0;
+
+    background:#fff;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
+
+.container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+}
+
+.card{
+
+    background:#fff;
+
+    border-radius:12px;
+
+    padding:30px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.card h2{
+
+    color:#1565C0;
+
+    margin-bottom:10px;
+
+    font-family:Georgia,serif;
+
+}
+
+.card p{
+
+    color:#666;
+
+    margin-bottom:25px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#1565C0;
+
+    color:#fff;
+
+}
+
+th{
+
+    padding:15px;
+
+    text-align:left;
+
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    text-decoration:none;
+}
+
+.logo-icon{
+    width:64px;
+    height:64px;
+    background:#ffffff;
+    border-radius:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.logo-icon .fa-briefcase{
+    color:#1565C0;
+    font-size:30px;
+}
+
+.logo-badge{
+    position:absolute;
+    right:-4px;
+    bottom:-4px;
+    width:24px;
+    height:24px;
+    background:#1565C0;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:2px solid #fff;
+}
+
+.logo-badge i{
+    color:#fff;
+    font-size:11px;
+}
+
+.logo h1{
+    margin:0;
+    font-family:Georgia, serif;
+    font-size:34px;
+    font-weight:700;
+    color:#ffffff;
+    letter-spacing:-1px;
+    line-height:1;
+}
+
+/* Optional hover effect */
+.logo:hover .logo-icon{
+    transform:translateY(-2px);
+    transition:.3s;
+}
+
+.logo:hover .logo-badge{
+    transform:rotate(15deg);
+    transition:.3s;
+}
+td{
+
+    padding:15px;
+
+    border-bottom:1px solid #e5e5e5;
+
+}
+
+tbody tr:hover{
+
+    background:#f8fbff;
+
+}
+
+.status{
+
+    background:#d4edda;
+
+    color:#155724;
+
+    padding:6px 15px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+}
+
+.cancel-btn{
+
+    background:#dc3545;
+
+    color:#fff;
+
+    border:none;
+
+    padding:8px 16px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+.cancel-btn:hover{
+
+    background:#b02a37;
+
+}
+
+.empty{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#888;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <a href="/index.html" class="logo">
+
+        <div class="logo-icon">
+            <i class="fa-solid fa-briefcase"></i>
+
+            <span class="logo-badge">
+                <i class="fa-solid fa-bolt"></i>
+            </span>
+        </div>
+
+        <h1>ApplyEase</h1>
+
+    </a>
+
+    <a href="/dashboard.html" class="back-btn">Back</a>
+
+</header>
+
+
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>My Applications</h2>
+
+<p>
+
+Track all the jobs you have successfully applied for.
+
+</p>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Company</th>
+
+<th>Role</th>
+
+<th>Location</th>
+
+<th>Status</th>
+
+<th>Date</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="applicationsTable">
+
+<tr>
+
+<td colspan="6" class="empty">
+
+No applications yet.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+let jobs = JSON.parse(localStorage.getItem("appliedJobs")) || [];
+
+const table = document.getElementById("applicationsTable");
+
+function loadApplications(){
+
+    table.innerHTML="";
+
+    if(jobs.length===0){
+
+        table.innerHTML=`
+
+        <tr>
+
+        <td colspan="6" class="empty">
+
+        No applications yet.
+
+        </td>
+
+        </tr>
+
+        `;
+
+        return;
+
+    }
+
+    jobs.forEach((job,index)=>{
+
+        table.innerHTML+=`
+
+        <tr>
+
+        <td>${job.company}</td>
+
+        <td>${job.title}</td>
+
+        <td>${job.location}</td>
+
+        <td>
+
+        <span class="status">
+
+        Applied
+
+        </span>
+
+        </td>
+
+        <td>${new Date().toLocaleDateString()}</td>
+
+        <td>
+
+        <button
+
+        class="cancel-btn"
+
+        onclick="cancelApplication(${index})">
+
+        Cancel
+
+        </button>
+
+        </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+function cancelApplication(index){
+
+    if(!confirm("Cancel this application?")){
+
+        return;
+
+    }
+
+    jobs.splice(index,1);
+
+    localStorage.setItem(
+
+        "appliedJobs",
+
+        JSON.stringify(jobs)
+
+    );
+
+    loadApplications();
+
+}
+
+loadApplications();
+
+</script>
+
+</body>
+
+</html>
